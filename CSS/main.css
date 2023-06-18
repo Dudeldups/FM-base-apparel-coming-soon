@@ -1,0 +1,192 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  text-rendering: optimizeSpeed;
+}
+
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  border: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.bold {
+  font-weight: 600;
+}
+
+.black {
+  color: hsl(0, 6%, 24%);
+}
+
+body {
+  font: 1rem "Josefin Sans", sans-serif;
+  max-width: 29em;
+  margin: 0 auto;
+}
+@media only screen and (min-width: 67.5em) {
+  body {
+    margin: 0;
+    max-width: none;
+    display: grid;
+    grid-template: ". header . img" auto ". main   . img" auto ". main   . img" auto/1fr 5fr 1fr 5fr;
+  }
+}
+
+header,
+main {
+  padding: 2rem;
+}
+
+@media only screen and (min-width: 67.5em) {
+  header {
+    grid-area: header;
+    align-self: center;
+    padding-bottom: 15%;
+  }
+}
+
+@media only screen and (min-width: 67.5em) {
+  .hero {
+    grid-area: img;
+    height: 100%;
+    width: 100%;
+    background: url("../images/hero-desktop.jpg") no-repeat;
+    background-size: cover;
+  }
+}
+.hero__img {
+  margin: 0 auto;
+}
+@media only screen and (min-width: 67.5em) {
+  .hero__img {
+    width: 0;
+    height: 0;
+  }
+}
+
+@media only screen and (min-width: 67.5em) {
+  main {
+    grid-area: main;
+    max-width: 36em;
+  }
+}
+
+.text__heading, .text__description {
+  color: hsl(0, 36%, 70%);
+  text-align: center;
+}
+@media only screen and (min-width: 67.5em) {
+  .text__heading, .text__description {
+    text-align: left;
+  }
+}
+.text__heading {
+  font-weight: 300;
+  font-size: 2.5rem;
+  letter-spacing: 0.8rem;
+  text-transform: uppercase;
+}
+@media only screen and (min-width: 40em) {
+  .text__heading {
+    font-size: 5rem;
+    line-height: 1.2;
+  }
+}
+.text__description {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+@media only screen and (min-width: 40em) {
+  .text__description {
+    font-size: 1.2rem;
+  }
+}
+
+.email-form {
+  margin-top: 3rem;
+  position: relative;
+}
+.email-form__input {
+  width: 100%;
+  border: 1px solid hsl(0, 36%, 70%);
+  border-radius: 5rem;
+  padding: 1rem 2rem;
+}
+.email-form__input::-moz-placeholder {
+  color: hsl(0, 36%, 70%);
+  opacity: 0.5;
+}
+.email-form__input::placeholder {
+  color: hsl(0, 36%, 70%);
+  opacity: 0.5;
+}
+.email-form__input__error {
+  position: absolute;
+  bottom: -1.75rem;
+  left: 1.75rem;
+  color: hsl(0, 6%, 24%);
+}
+.email-form__button {
+  background-image: linear-gradient(135deg, rgb(248, 191, 191) 0%, rgb(238, 140, 140) 100%);
+  color: white;
+  font-size: 2rem;
+  font-weight: 300;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 4rem;
+  border-radius: 5rem;
+  box-shadow: 0 5px 12px rgba(206, 151, 151, 0.75);
+}
+@media only screen and (min-width: 26em) {
+  .email-form__button {
+    width: 6rem;
+  }
+}/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,142 @@
+@use "_resets.scss";
+@use "_colors.scss";
+@use "_gradients.scss";
+@use "_mixins.scss" as *;
+
+.bold {
+  font-weight: 600;
+}
+
+.black {
+  color: colors.$dark-grayish-red;
+}
+
+body {
+  font: 1rem "Josefin Sans", sans-serif;
+  max-width: 29em;
+  margin: 0 auto;
+
+  @include mq(67.5em) {
+    margin: 0;
+    max-width: none;
+    display: grid;
+    grid-template:
+      ". header . img" auto
+      ". main   . img" auto
+      ". main   . img" auto / 1fr 5fr 1fr 5fr;
+  }
+}
+
+header,
+main {
+  padding: 2rem;
+}
+
+header {
+  @include mq(67.5em) {
+    grid-area: header;
+    align-self: center;
+    padding-bottom: 15%;
+  }
+}
+
+.hero {
+  @include mq(67.5em) {
+    grid-area: img;
+    height: 100%;
+    width: 100%;
+    background: url("../images/hero-desktop.jpg") no-repeat;
+    background-size: cover;
+  }
+
+  &__img {
+    margin: 0 auto;
+
+    @include mq(67.5em) {
+      width: 0;
+      height: 0;
+    }
+  }
+}
+
+main {
+  @include mq(67.5em) {
+    grid-area: main;
+    max-width: 36em;
+  }
+}
+
+.text {
+  &__heading,
+  &__description {
+    color: colors.$desaturated-red;
+    text-align: center;
+
+    @include mq(67.5em) {
+      text-align: left;
+    }
+  }
+
+  &__heading {
+    font-weight: 300;
+    font-size: 2.5rem;
+    letter-spacing: 0.8rem;
+    text-transform: uppercase;
+
+    @include mq(40em) {
+      font-size: 5rem;
+      line-height: 1.2;
+    }
+  }
+
+  &__description {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+
+    @include mq(40em) {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.email-form {
+  margin-top: 3rem;
+  position: relative;
+
+  &__input {
+    width: 100%;
+    border: 1px solid colors.$desaturated-red;
+    border-radius: 5rem;
+    padding: 1rem 2rem;
+
+    &::placeholder {
+      color: colors.$desaturated-red;
+      opacity: 0.5;
+    }
+
+    &__error {
+      position: absolute;
+      bottom: -1.75rem;
+      left: 1.75rem;
+      color: colors.$dark-grayish-red;
+    }
+  }
+
+  &__button {
+    background-image: linear-gradient(135deg, gradients.$dark-red);
+    color: white;
+    font-size: 2rem;
+    font-weight: 300;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 4rem;
+    border-radius: 5rem;
+    box-shadow: 0 5px 12px rgba(colors.$desaturated-red, 0.75);
+
+    @include mq(26em) {
+      width: 6rem;
+    }
+  }
+}
