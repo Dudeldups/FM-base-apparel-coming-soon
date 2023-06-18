@@ -1,5 +1,9 @@
 const formElement = document.querySelector(".email-form");
-const emailInput = document.querySelector("#email");
+const emailInput = formElement.querySelector("#email");
+const errorMessageElement = formElement.querySelector(
+  ".email-form__input__error-message"
+);
+const errorIcon = formElement.querySelector(".email-form__input__error-icon");
 
 formElement.addEventListener("submit", e => {
   e.preventDefault();
@@ -15,15 +19,20 @@ formElement.addEventListener("submit", e => {
   }
 
   function setError(message) {
-    emailInput.className = "error";
-    errorElement.innerText = message;
-    errorElement.style.display = "block";
+    if (emailInput.classList.contains("valid")) {
+      emailInput.classList.remove("valid");
+    }
+    emailInput.classList.add("error");
+    errorMessageElement.innerText = message;
   }
 
   function setValid(message) {
-    emailInput.className = "valid";
-    errorElement.innerText = message;
-    errorElement.style.display = "block";
+    if (emailInput.classList.contains("error")) {
+      emailInput.classList.remove("error");
+    }
+    emailInput.classList.add("valid");
+    errorMessageElement.innerText = message;
+    emailInput.value = "";
   }
 
   function isEmail(email) {

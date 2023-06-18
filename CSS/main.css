@@ -71,6 +71,7 @@ body {
 }
 @media only screen and (min-width: 67.5em) {
   body {
+    background: url("../images/bg-pattern-desktop.svg");
     margin: 0;
     max-width: none;
     display: grid;
@@ -134,7 +135,7 @@ main {
 }
 @media only screen and (min-width: 40em) {
   .text__heading {
-    font-size: 5rem;
+    font-size: 3rem;
     line-height: 1.2;
   }
 }
@@ -145,7 +146,7 @@ main {
 }
 @media only screen and (min-width: 40em) {
   .text__description {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 
@@ -155,6 +156,7 @@ main {
 }
 .email-form__input {
   width: 100%;
+  height: 3.5rem;
   border: 1px solid hsl(0, 36%, 70%);
   border-radius: 5rem;
   padding: 1rem 2rem;
@@ -167,21 +169,51 @@ main {
   color: hsl(0, 36%, 70%);
   opacity: 0.5;
 }
-.email-form__input__error {
+.email-form__input:focus {
+  outline-color: orange;
+}
+.email-form__input__error-message {
+  display: none;
+  padding: 0.5rem 1rem;
+}
+.email-form__input__error-icon {
+  display: none;
   position: absolute;
-  bottom: -1.75rem;
-  left: 1.75rem;
-  color: hsl(0, 6%, 24%);
+  right: 4.5rem;
+  top: 1.1rem;
+}
+@media only screen and (min-width: 26em) {
+  .email-form__input__error-icon {
+    right: 6.7rem;
+  }
+}
+.email-form__input.error {
+  border: 2px solid hsl(0, 93%, 68%);
+}
+.email-form__input.error ~ .email-form__input__error-message {
+  display: block;
+  color: hsl(0, 93%, 68%);
+}
+.email-form__input.error ~ .email-form__input__error-icon {
+  display: block;
+}
+.email-form__input.valid {
+  border: 2px solid hsl(100, 100%, 35%);
+}
+.email-form__input.valid ~ .email-form__input__error-message {
+  display: block;
+  color: hsl(100, 100%, 35%);
 }
 .email-form__button {
-  background-image: linear-gradient(135deg, rgb(248, 191, 191) 0%, rgb(238, 140, 140) 100%);
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 3.5rem;
+  width: 4rem;
+  background: url("../images/icon-arrow.svg") no-repeat center, linear-gradient(135deg, rgb(248, 191, 191) 0%, rgb(238, 140, 140) 100%);
   color: white;
   font-size: 2rem;
   font-weight: 300;
-  position: absolute;
-  right: 0;
-  height: 100%;
-  width: 4rem;
   border-radius: 5rem;
   box-shadow: 0 5px 12px rgba(206, 151, 151, 0.75);
 }
@@ -189,4 +221,10 @@ main {
   .email-form__button {
     width: 6rem;
   }
+}
+.email-form__button:hover {
+  opacity: 0.5;
+}
+.email-form__button > img {
+  left: 50%;
 }/*# sourceMappingURL=main.css.map */

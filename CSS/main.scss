@@ -17,6 +17,7 @@ body {
   margin: 0 auto;
 
   @include mq(67.5em) {
+    background: url("../images/bg-pattern-desktop.svg");
     margin: 0;
     max-width: none;
     display: grid;
@@ -84,7 +85,7 @@ main {
     text-transform: uppercase;
 
     @include mq(40em) {
-      font-size: 5rem;
+      font-size: 3rem;
       line-height: 1.2;
     }
   }
@@ -95,7 +96,7 @@ main {
     line-height: 1.5;
 
     @include mq(40em) {
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
   }
 }
@@ -106,6 +107,7 @@ main {
 
   &__input {
     width: 100%;
+    height: 3.5rem;
     border: 1px solid colors.$desaturated-red;
     border-radius: 5rem;
     padding: 1rem 2rem;
@@ -115,28 +117,74 @@ main {
       opacity: 0.5;
     }
 
-    &__error {
+    &:focus {
+      outline-color: orange;
+    }
+
+    &__error-message {
+      display: none;
+      padding: 0.5rem 1rem;
+    }
+
+    &__error-icon {
+      display: none;
       position: absolute;
-      bottom: -1.75rem;
-      left: 1.75rem;
-      color: colors.$dark-grayish-red;
+      right: 4.5rem;
+      top: 1.1rem;
+
+      @include mq(26em) {
+        right: 6.7rem;
+      }
+    }
+
+    &.error {
+      border: 2px solid colors.$soft-red;
+
+      & ~ .email-form__input__error-message {
+        display: block;
+        color: colors.$soft-red;
+      }
+
+      & ~ .email-form__input__error-icon {
+        display: block;
+      }
+    }
+
+    &.valid {
+      border: 2px solid colors.$green;
+
+      & ~ .email-form__input__error-message {
+        display: block;
+        color: colors.$green;
+      }
     }
   }
 
   &__button {
-    background-image: linear-gradient(135deg, gradients.$dark-red);
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 3.5rem;
+    width: 4rem;
+    background: url("../images/icon-arrow.svg") no-repeat center,
+      linear-gradient(135deg, gradients.$dark-red);
     color: white;
     font-size: 2rem;
     font-weight: 300;
-    position: absolute;
-    right: 0;
-    height: 100%;
-    width: 4rem;
+
     border-radius: 5rem;
     box-shadow: 0 5px 12px rgba(colors.$desaturated-red, 0.75);
 
     @include mq(26em) {
       width: 6rem;
+    }
+
+    &:hover {
+      opacity: 0.5;
+    }
+
+    & > img {
+      left: 50%;
     }
   }
 }
