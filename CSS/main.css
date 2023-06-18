@@ -71,7 +71,7 @@ body {
 }
 @media only screen and (min-width: 67.5em) {
   body {
-    background: url("../images/bg-pattern-desktop.svg");
+    background: url("../images/bg-pattern-desktop.svg") no-repeat center/cover;
     margin: 0;
     max-width: none;
     display: grid;

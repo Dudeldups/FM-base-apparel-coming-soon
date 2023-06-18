@@ -17,7 +17,7 @@ body {
   margin: 0 auto;
 
   @include mq(67.5em) {
-    background: url("../images/bg-pattern-desktop.svg");
+    background: url("../images/bg-pattern-desktop.svg") no-repeat center / cover;
     margin: 0;
     max-width: none;
     display: grid;
